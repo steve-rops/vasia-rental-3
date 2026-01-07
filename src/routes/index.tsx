@@ -1,28 +1,37 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useState } from 'react'
+import { Amenities } from '@/components/Amenities'
+import ContactForm from '@/components/ContactForm'
+import { Features } from '@/components/Features'
+import { Footer } from '@/components/Footer'
 import Header from '@/components/Header'
 import { Hero } from '@/components/Hero'
-import { Features } from '@/components/Features'
-import { Amenities } from '@/components/Amenities'
-import { NearByVenues } from '@/components/NearByVenues'
-import { Footer } from '@/components/Footer'
 import { ImageGallery } from '@/components/ImageGallery'
-import ContactForm from '@/components/ContactForm'
+import { NearByVenues } from '@/components/NearByVenues'
+import { Dialog } from '@/components/ui/dialog'
+import { CustomDialogContent } from '@/components/ui/customDialogContent'
 
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
+  const [openModal, setModalIsOpen] = useState(false)
+
   return (
     <div className="max-w-7xl mx-auto">
-      <Header />
-      <main className="space-y-8">
-        <Hero />
-        <Features />
-        <Amenities />
-        <NearByVenues />
-        <ImageGallery />
-        <ContactForm />
-      </main>
-      <Footer />
+      <Dialog open={openModal} onOpenChange={setModalIsOpen}>
+        <Header />
+        <main className="space-y-8">
+          <Hero setModalOpen={setModalIsOpen} />
+          <Features />
+          <Amenities />
+          <NearByVenues />
+          <ImageGallery setModalOpen={setModalIsOpen} />
+          <ContactForm />
+        </main>
+        <Footer />
+
+        <CustomDialogContent />
+      </Dialog>
     </div>
   )
 }

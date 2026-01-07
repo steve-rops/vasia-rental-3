@@ -2,11 +2,17 @@ import { CustomSection } from './ui/customSection'
 import { SectionTitle } from './ui/sectionTitle'
 import { SectionSubtitle } from './ui/sectionSubtitle'
 import { Button } from './ui/button'
+import type { Dispatch } from 'react'
 
 export interface GalleryImage {
   url: string
   spanClass?: string
   alt?: string
+}
+
+interface HeroProps {
+  openModal?: boolean
+  setModalOpen: Dispatch<React.SetStateAction<boolean>>
 }
 
 const images: Array<GalleryImage> = [
@@ -24,12 +30,25 @@ const images: Array<GalleryImage> = [
   },
 ]
 
-export const ImageGallery = () => {
+export const ImageGallery = ({ setModalOpen }: HeroProps) => {
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setModalOpen(true)
+  }
+
   return (
-    <CustomSection className="flex-col bg-accent rounded-md ">
-      <div>
-        <SectionTitle>Image Gallery</SectionTitle>
-        <SectionSubtitle>Get a better look at our property</SectionSubtitle>
+    <CustomSection
+      onClick={(e) => handleClick(e)}
+      className="flex-col bg-accent rounded-md "
+    >
+      <div className="flex items-center justify-between">
+        <div>
+          <SectionTitle>Image Gallery</SectionTitle>
+          <SectionSubtitle>Get a better look at our property</SectionSubtitle>
+        </div>
+
+        <Button className="hidden lg:block">View Gallery</Button>
       </div>
 
       {/* Desktop Grid: Fixed to allow span classes to work */}
@@ -69,7 +88,7 @@ export const ImageGallery = () => {
         </div>
       </div>
 
-      <Button variant="outline" size="sm" className=" w-fit mx-auto">
+      <Button variant="outline" size="sm" className="lg:hidden w-fit mx-auto">
         View Full Gallery
       </Button>
     </CustomSection>

@@ -1,10 +1,20 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
-
+import {
+  HeadContent,
+  Scripts,
+  createRootRoute,
+  useRouter,
+} from '@tanstack/react-router'
+import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
+import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import appCss from '../styles.css?url'
+import { setSSRLanguage } from '@/lib/i18n'
 
 export const Route = createRootRoute({
+  beforeLoad: async () => {
+    await setSSRLanguage()
+  },
   head: () => ({
     meta: [
       {
@@ -30,6 +40,19 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const { i18n } = useTranslation()
+  const router = useRouter()
+
+  useEffect(() => {
+    const handler = () => {
+      router.invalidate()
+    }
+    i18n.on('languageChanged', handler)
+    return () => {
+      i18n.off('languageChanged', handler)
+    }
+  }, [router])
+
   return (
     <html lang="en">
       <head>

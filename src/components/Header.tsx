@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Button } from './ui/button'
+import { LanguageSelector } from './ui/languageSelector'
+import { scrollToContactForm } from '@/lib/utils'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const { t } = useTranslation()
+
+  const handleClick = () => {
+    scrollToContactForm()
+  }
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check if the user has scrolled more than 10 pixels
       setIsScrolled(window.scrollY > 80)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -28,11 +34,9 @@ export default function Header() {
       />
 
       <div className="gap-2 flex ">
-        <Button variant="ghost" size="sm">
-          EN
-        </Button>
-        <Button size="sm" variant="outline">
-          Contact Us
+        <LanguageSelector />
+        <Button onClick={handleClick} className="size-sm">
+          {t('header.contact')}
         </Button>
       </div>
     </header>

@@ -43,7 +43,10 @@ export const Amenities = () => {
 
       <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
         {amenities.map((am) => (
-          <div className="flex text-xs md:text-base items-center gap-3 bg-background border border-border p-2 rounded-lg hover:border-primary/20 hover:text-primary ">
+          <div
+            key={am.label}
+            className="flex text-xs md:text-base items-center gap-3 bg-background border border-border p-2 rounded-lg hover:border-primary/20 hover:text-primary "
+          >
             {am.icon}
             {am.label}
           </div>

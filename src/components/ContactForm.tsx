@@ -25,7 +25,10 @@ const ContactForm = () => {
   }
 
   return (
-    <section className="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-10 bg-primary/5">
+    <section
+      id="contact"
+      className="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-10 bg-primary/5"
+    >
       <div className="flex flex-col max-w-[560px] flex-1">
         <div className="bg-white rounded-2xl p-8 border border-border-light shadow-md">
           <div className="flex flex-col gap-2 mb-6 text-center">

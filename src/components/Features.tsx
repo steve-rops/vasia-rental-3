@@ -45,7 +45,10 @@ export const Features = () => {
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {features.map((f) => (
-          <Card className="gap-0 group hover:border-primary/30 hover:shadow-lg transition-all duration-200 ">
+          <Card
+            key={f.title}
+            className="gap-0 group hover:border-primary/30 hover:shadow-lg transition-all duration-200 "
+          >
             <CardHeader className="">
               <div className="w-fit rounded-full p-2 bg-primary/20">
                 {f.icon}
