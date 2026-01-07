@@ -10,8 +10,12 @@ import { ImageGallery } from '@/components/ImageGallery'
 import { NearByVenues } from '@/components/NearByVenues'
 import { Dialog } from '@/components/ui/dialog'
 import { CustomDialogContent } from '@/components/ui/customDialogContent'
+import { Spinner } from '@/components/ui/spinner'
 
-export const Route = createFileRoute('/')({ component: App })
+export const Route = createFileRoute('/')({
+  component: App,
+  pendingComponent: Loading,
+})
 
 function App() {
   const [openModal, setModalIsOpen] = useState(false)
@@ -32,6 +36,14 @@ function App() {
 
         <CustomDialogContent />
       </Dialog>
+    </div>
+  )
+}
+
+function Loading() {
+  return (
+    <div className="h-svh w-full">
+      <Spinner />
     </div>
   )
 }

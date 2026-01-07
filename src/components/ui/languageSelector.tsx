@@ -26,15 +26,13 @@ export function LanguageSelector() {
 
   return (
     <Select value={currentLanguage.code} onValueChange={handleLanguageChange}>
-      <SelectTrigger className="w-fit border-none shadow-none focus:ring-0">
+      <SelectTrigger className="xborder-none shadow-none focus:ring-0">
         <SelectValue>
-          <div className="flex items-center gap-2">
-            <img
-              className="size-4 rounded-sm object-cover"
-              src={currentLanguage.flag}
-              alt={currentLanguage.label}
-            />
-          </div>
+          <img
+            className="size-4 rounded-sm object-cover"
+            src={currentLanguage.flag}
+            alt={currentLanguage.label}
+          />
         </SelectValue>
       </SelectTrigger>
 

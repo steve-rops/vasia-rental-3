@@ -30,7 +30,7 @@ export default function Header() {
       <img
         src="/logo.svg"
         alt="Vasia Rental Logo"
-        className="h-8 md:h-12 w-auto"
+        className="h-10 md:h-12 w-1/3 "
       />
 
       <div className="gap-2 flex ">
