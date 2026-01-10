@@ -67,7 +67,7 @@ const ContactForm = () => {
 
   return (
     <CustomSection className="flex-col ">
-      <div>
+      <div id="contact">
         <SectionTitle className="text-center">
           Ask for Availability
         </SectionTitle>

@@ -8,5 +8,9 @@
     "p": "Experience our newly renovated, sunlight-filled studio. Featuring floor-to-ceiling windows, smart home integration, and premium finishes. Ready for move-in today.",
     "icons": { "bedrooms": "1 Bedroom", "bathrooms": "1 Bathroom" },
     "btns": { "gallery": "View Gallery", "contact": "Ask Availability" }
+  },
+  "features": {
+    "title": "Living Spaces",
+    "subtitle": "Designed for comfort and functionality with modern finishes throughout."
   }
 }

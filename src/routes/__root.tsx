@@ -12,6 +12,9 @@ import appCss from '../styles.css?url'
 import { setSSRLanguage } from '@/lib/i18n'
 
 export const Route = createRootRoute({
+  pendingComponent: () => {
+    return <div>Loading</div>
+  },
   beforeLoad: async () => {
     await setSSRLanguage()
   },
