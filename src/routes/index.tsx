@@ -42,8 +42,8 @@ function App() {
 
 function Loading() {
   return (
-    <div className="h-svh w-full">
-      <Spinner />
+    <div className="h-svh w-full grid place-items-center">
+      <Spinner className="w-12 h-12" />
     </div>
   )
 }

@@ -11,6 +11,68 @@
   },
   "features": {
     "title": "Living Spaces",
-    "subtitle": "Designed for comfort and functionality with modern finishes throughout."
+    "subtitle": "Designed for comfort and functionality with modern finishes throughout.",
+    "elements": [
+      {
+        "icon": "bed",
+        "title": "Comfortable Bedroom",
+        "description": "One private bedroom featuring a comfortable bed for a restful night's sleep."
+      },
+      {
+        "icon": "bath",
+        "title": "Fully Equipped Kitchen",
+        "description": "Prepare meals with ease using modern appliances and ample space."
+      },
+      {
+        "icon": "sofa",
+        "title": "Cozy Living Area",
+        "description": "A welcoming space to relax, complete with access to a private balcony."
+      }
+    ]
+  },
+  "amenities": {
+    "title": "Amenities",
+    "subtitle": "Our apartment has everything yout need",
+    "elements": [
+      { "icon": "wifi", "label": "High-Speed Wi-Fi" },
+      { "icon": "fork-knife", "label": "Modern Appliances" },
+      { "icon": "washing-machine", "label": "Washing Machine" },
+      { "icon": "air-vent", "label": "Air Conditioning" },
+      { "icon": "heater", "label": "Heating" },
+      { "icon": "square-parking", "label": "Free Parking" },
+      { "icon": "telescope", "label": "Balcony" },
+      { "icon": "shower-head", "label": "Modern Bathroom" }
+    ]
+  },
+  "venues": {
+    "title": "Nearby Venues",
+    "subtitle": "Everything you need is just a short walk away.",
+    "elements": [
+      {
+        "id": "1",
+        "name": "Central Square",
+        "distance": "700m"
+      },
+      {
+        "id": "2",
+        "name": "Police Station",
+        "distance": "700m"
+      },
+      {
+        "id": "3",
+        "name": "Gym",
+        "distance": "Walking distance"
+      },
+      {
+        "id": "4",
+        "name": "Bakery–Café",
+        "distance": "Walking distance"
+      },
+      {
+        "id": "5",
+        "name": "Supermarket",
+        "distance": "Walking distance"
+      }
+    ]
   }
 }
