@@ -59,7 +59,7 @@ export const Hero = ({ setModalOpen }: HeroProps) => {
             </div>
           </div>
 
-          <div className="flex gap-4 flex-wrap ">
+          <div className="flex gap-2 flex-wrap ">
             <Button
               onClick={() => handleClick('contact')}
               className="h-12 w-full md:w-fit flex-1 text-base"
@@ -69,7 +69,7 @@ export const Hero = ({ setModalOpen }: HeroProps) => {
             <Button
               onClick={() => handleClick('modal')}
               variant="outline"
-              className="h-12 w-full md:w-fit text-base"
+              className="h-12 w-full text-base"
             >
               {t('hero.btns.gallery')}
             </Button>

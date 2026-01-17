@@ -74,5 +74,24 @@
         "distance": "Walking distance"
       }
     ]
+  },
+  "gallery": {
+    "title": "Image Gallery",
+    "subtitle": "Get a better look at our property",
+    "btn": "View Gallery"
+  },
+  "form": {
+    "title": "Ask for Availability",
+    "subtitle": "We are here to answer every question",
+    "name": "Full Name",
+    "email": "Email Address",
+    "dates": { "title": "Select Booking Dates", "empty": "Select date range" },
+    "message": {
+      "title": "Message",
+      "placeholder": "'m interested in viewing the apartment..."
+    },
+    "total": "Total",
+    "days": "days",
+    "btn": "Request Details"
   }
 }

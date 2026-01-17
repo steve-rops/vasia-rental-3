@@ -38,6 +38,11 @@ i18n
 
 export const defaultLanguage = 'en'
 
+export enum Locales {
+  en = 'en',
+  el = 'el',
+}
+
 export const setSSRLanguage = createIsomorphicFn().server(async () => {
   const language = getCookie(i18nCookieName)
   await i18n.changeLanguage(language || defaultLanguage)

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { CustomSection } from './ui/customSection'
 import { SectionTitle } from './ui/sectionTitle'
 import { SectionSubtitle } from './ui/sectionSubtitle'
@@ -31,6 +32,8 @@ const images: Array<GalleryImage> = [
 ]
 
 export const ImageGallery = ({ setModalOpen }: HeroProps) => {
+  const { t } = useTranslation()
+
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     e.stopPropagation()
@@ -38,23 +41,23 @@ export const ImageGallery = ({ setModalOpen }: HeroProps) => {
   }
 
   return (
-    <CustomSection
-      onClick={(e) => handleClick(e)}
-      className="flex-col bg-accent rounded-md "
-    >
+    <CustomSection className="flex-col bg-accent rounded-md ">
       <div className="flex items-center justify-between">
         <div>
-          <SectionTitle>Image Gallery</SectionTitle>
-          <SectionSubtitle>Get a better look at our property</SectionSubtitle>
+          <SectionTitle>{t('gallery.title')}</SectionTitle>
+          <SectionSubtitle>{t('gallery.subtitle')}</SectionSubtitle>
         </div>
 
-        <Button className="hidden lg:block">View Gallery</Button>
+        <Button onClick={(e) => handleClick(e)} className="hidden lg:block">
+          {t('gallery.btn')}
+        </Button>
       </div>
 
       {/* Desktop Grid: Fixed to allow span classes to work */}
       <div className="hidden lg:grid grid-cols-2 gap-4 w-full">
         {images.map((img, index) => (
           <div
+            onClick={(e) => handleClick(e)}
             key={index}
             className={`group relative overflow-hidden rounded-xl bg-gray-100 cursor-pointer shadow-sm h-64     `}
           >
@@ -69,6 +72,7 @@ export const ImageGallery = ({ setModalOpen }: HeroProps) => {
       {/* Mobile Stack: Added height to prevent layout collapse */}
       <div className="lg:hidden flex justify-center w-full">
         <div
+          onClick={(e) => handleClick(e)}
           className="relative h-32"
           style={{ width: `${128 + (images.length - 1) * 24}px` }}
         >
@@ -88,8 +92,13 @@ export const ImageGallery = ({ setModalOpen }: HeroProps) => {
         </div>
       </div>
 
-      <Button variant="outline" size="sm" className="lg:hidden w-fit mx-auto">
-        View Full Gallery
+      <Button
+        onClick={(e) => handleClick(e)}
+        variant="outline"
+        size="sm"
+        className="lg:hidden w-fit mx-auto"
+      >
+        {t('gallery.btn')}
       </Button>
     </CustomSection>
   )

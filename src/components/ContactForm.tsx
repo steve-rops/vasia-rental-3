@@ -30,7 +30,7 @@ interface BookingFormData {
 }
 
 const ContactForm = () => {
-  const { i18n } = useTranslation()
+  const { i18n, t } = useTranslation()
 
   const currentLocale = localeMap[i18n.language]
 
@@ -65,21 +65,29 @@ const ContactForm = () => {
     setFormData({ name: '', email: '', message: '', date: undefined })
   }
 
+  let differenceInDays = null
+  if (formData.date?.from && formData.date.to) {
+    differenceInDays =
+      (new Date(formData.date.to).getTime() -
+        new Date(formData.date.from).getTime()) /
+      (1000 * 60 * 60 * 24)
+  }
+
+  console.log(differenceInDays)
+
   return (
     <CustomSection className="flex-col ">
       <div id="contact">
-        <SectionTitle className="text-center">
-          Ask for Availability
-        </SectionTitle>
+        <SectionTitle className="text-center">{t('form.title')}</SectionTitle>
         <SectionSubtitle className="text-center">
-          We are here to answer every question
+          {t('form.subtitle')}
         </SectionSubtitle>
       </div>
       <form className="flex flex-col gap-5 p-4" onSubmit={handleSubmit}>
         {/* Name Input */}
         <div className="flex flex-col gap-1.5">
           <label className="text-text-main text-sm font-bold" htmlFor="name">
-            Full Name
+            {t('form.name')}
           </label>
           <input
             id="name"
@@ -96,7 +104,7 @@ const ContactForm = () => {
         {/* Email Input */}
         <div className="flex flex-col gap-1.5">
           <label className="text-text-main text-sm font-bold" htmlFor="email">
-            Email Address
+            {t('form.email')}
           </label>
           <input
             id="email"
@@ -113,7 +121,7 @@ const ContactForm = () => {
         {/* Date Picker Field */}
         <div className="flex flex-col gap-1.5">
           <label className="text-text-main text-sm font-bold">
-            Select Booking Dates
+            {t('form.dates.title')}
           </label>
           <Popover>
             <PopoverTrigger asChild>
@@ -142,7 +150,7 @@ const ContactForm = () => {
                     })
                   )
                 ) : (
-                  <span>Select date range</span>
+                  <span>{t('form.dates.empty')}</span>
                 )}
               </Button>
             </PopoverTrigger>
@@ -158,21 +166,27 @@ const ContactForm = () => {
                 disabled={(date) =>
                   date < new Date(new Date().setHours(0, 0, 0, 0))
                 }
-                numberOfMonths={2} // Better UX for range selection
+                numberOfMonths={2}
               />
             </PopoverContent>
           </Popover>
+
+          {differenceInDays && (
+            <div className="text-xs">
+              {t('form.total')}: {differenceInDays} {t('form.days')}
+            </div>
+          )}
         </div>
 
         {/* Message Input */}
         <div className="flex flex-col gap-1.5">
           <label className="text-text-main text-sm font-bold" htmlFor="message">
-            Message
+            {t('form.message.title')}
           </label>
           <textarea
             id="message"
             name="message"
-            placeholder="I'm interested in viewing the apartment..."
+            placeholder={t('form.message.placeholder')}
             rows={4}
             className="w-full rounded-lg border border-border-light bg-background-light p-4 text-text-main placeholder-text-secondary focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none"
             value={formData.message}
@@ -182,7 +196,7 @@ const ContactForm = () => {
         </div>
 
         <Button type="submit" className="mt-2 h-12 w-full text-base">
-          Request Details
+          {t('form.btn')}
         </Button>
       </form>
     </CustomSection>

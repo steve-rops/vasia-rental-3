@@ -27,11 +27,7 @@ export default function Header() {
         ${isScrolled ? 'border-b border-border' : 'border-b border-transparent'}
       `}
     >
-      <img
-        src="/logo.svg"
-        alt="Vasia Rental Logo"
-        className="h-10 md:h-12 w-1/3 "
-      />
+      <img src="/logo.svg" alt="Vasia Rental Logo" className="h-11 md:h-12 " />
 
       <div className="gap-2 flex ">
         <LanguageSelector />

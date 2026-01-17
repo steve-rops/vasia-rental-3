@@ -9,7 +9,7 @@ export const Footer = () => {
         className="h-8 w-auto mr-2"
       />
 
-      <p className="text-xs text-[#9aa6b8]">© {year} UrbanLoft Rentals.</p>
+      <p className="text-xs text-[#9aa6b8]">© {year}</p>
     </footer>
   )
 }
