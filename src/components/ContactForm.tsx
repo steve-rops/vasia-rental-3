@@ -73,8 +73,6 @@ const ContactForm = () => {
       (1000 * 60 * 60 * 24)
   }
 
-  console.log(differenceInDays)
-
   return (
     <CustomSection className="flex-col ">
       <div id="contact">
